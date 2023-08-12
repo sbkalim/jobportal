@@ -25,7 +25,7 @@
                         {% render_field form.city class="form-control" %}
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">State</label>
+                        <label for="exampleInputEmail1" class="form-label">Country</label>
                         {% render_field form.state class="form-control" %}
                     </div>
                     <div class="mb-3">
@@ -43,6 +43,10 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Ideal Candidate</label>
                         {% render_field form.ideal_candidate|attr:"rows:2" class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Required Skills</label>
+                        {% render_field form.required_skills|attr:"rows:2" class="form-control" %}
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Is this Job Available</label>

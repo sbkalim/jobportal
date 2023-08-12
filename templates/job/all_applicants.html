@@ -14,6 +14,7 @@
                     <th scope="col">Surname</th>
                     <th scope="col">Location</th>
                     <th scope="col">Job Position/Title</th>
+                    <th scope="col">Key Skills</th>
                     <th scope="col">Application Date</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -25,6 +26,7 @@
                     <td>{{applicant.user.resume.surname}}</td>
                     <td>{{applicant.user.resume.location}}</td>
                     <td>{{applicant.user.resume.job_title}}</td>
+                    <td>{{applicant.user.resume.key_skills}}</td>
                     <td>{{applicant.timestamp}}</td>
                     <td><a target="_blank" href="{{applicant.user.resume.upload_resume.url}}"><small>Download Resume</small></a></td>
                 </tr>
