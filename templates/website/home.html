@@ -30,6 +30,7 @@
                         </div>
 
                         <div class="col-auto">
+
                             <button type="submit" class="btn btn-primary">Search</button>
                         </div>
                     </form>
@@ -54,7 +55,7 @@
                 <p class="card-text">Industry: {{job.industry}}</p>
                 <p class="card-text">Job Type: {{job.job_type}}</p>
                 <p class="card-text">Location: {{job.city}}, {{job.state}}</p>
-                <p class="card-text">Salary: {{job.salary}}</p>
+                <p class="card-text">Salary: BDT {{job.salary}}</p>
                 <a class="btn btn-primary btn-sm" href="{% url 'job-details' job.pk %}">View Details</a>
             </div>
             <div class="card-footer">

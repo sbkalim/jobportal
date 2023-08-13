@@ -8,7 +8,7 @@
         <div class="container-fluid py-5">
             <h2 class="display-5 fw-bold">{{job.title}}</h2>
             <p class="col-md-8 fs-5 mt-3">
-                {{job.state}} | Remote | NGN{{job.salary|intcomma}}
+                {{job.state}} | Remote | BDT {{job.salary|intcomma}}
             </p>
             {% if user.is_authenticated %}
             {% if has_applied == False %}
@@ -25,7 +25,7 @@
 
 <div>
     <section>
-        <h5>Job Requiements</h5>
+        <h5>Job Requirements</h5>
         <p>
            {{job.requirements}}
         </p>
@@ -44,6 +44,20 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
         <div class="card h-100">
+
+            <div class="card-body">
+                <h5 class="card-title">About the Company</h5>
+                <p class="card-text">Company: {{job.company.name}}</p>
+                <p class="card-text">Location: {{job.company.city}}, {{job.company.state}}</p>
+                <p class="card-text">Established: {{job.company.est_date}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100">
             <div class="card-body">
                 <h5 class="card-title">Required Skills</h5>
                 <p class="card-text">{{job.required_skills}}</p>
@@ -53,20 +67,7 @@
             </div>
         </div>
     </div>
-    <div class="col">
-        <div class="card h-100">
 
-            <div class="card-body">
-                <h5 class="card-title">About the Company</h5>
-                <p class="card-text">{{job.company.name}}</p>
-                <p class="card-text">{{job.company.city}}, {{job.company.state}}</p>
-                <p class="card-text">{{job.company.est_date}}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted"></small>
-            </div>
-        </div>
-    </div>
     <div class="col">
         <div class="card h-100">
 
