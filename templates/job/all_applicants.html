@@ -17,6 +17,7 @@
                     <th scope="col">Key Skills</th>
                     <th scope="col">Application Date</th>
                     <th scope="col">Action</th>
+                    <th scope="col" style="text-align: center;">Shortlist</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
                     <td>{{applicant.user.resume.key_skills}}</td>
                     <td>{{applicant.timestamp}}</td>
                     <td><a target="_blank" href="{{applicant.user.resume.upload_resume.url}}"><small>Download Resume</small></a></td>
+                    <td style="text-align: center;"><input type="checkbox"  name="" id=""></td>
                 </tr>
                 {% endfor %}
             </tbody>
