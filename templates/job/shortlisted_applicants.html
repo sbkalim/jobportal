@@ -5,10 +5,10 @@
 <div class="card mx-auto" style="width: 76rem;">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
-        <span style="font-size: 1.25rem;" class="card-title mb-3">All Applicants for {{job.title}} Position</span>
-        <a class="btn-btn-primary text-right" href="{% url 'shortlisted-applicants' job.pk %}">View Shortlisted
+        <span style="font-size: 1.25rem;" class="card-title mb-3">Shortlisted Applicants for {{job.title}}
+            Position</span>
+        <a class="btn btn-primary text-right" href="{% url 'all-applicants' job.pk %}">View All
             Applicants</a>
-
 
         <table class="table table-bordered">
             <thead>
@@ -20,11 +20,11 @@
                     <th scope="col">Key Skills</th>
                     <th scope="col">Application Date</th>
                     <th scope="col">Action</th>
-                    <th scope="col" style="text-align: center;">Shortlist</th>
+                    <th scope="col">Remove</th>
                 </tr>
             </thead>
             <tbody>
-                {% for applicant in applicants %}
+                {% for applicant in shortlisted_applicants %}
                 <tr>
                     <td>{{applicant.user.resume.first_name}}</td>
                     <td>{{applicant.user.resume.surname}}</td>
@@ -33,23 +33,16 @@
                     <td>{{applicant.user.resume.key_skills}}</td>
                     <td>{{applicant.timestamp}}</td>
                     <td><a target="_blank" href="{{applicant.user.resume.upload_resume.url}}"><small>Download Resume</small></a></td>
-                        <td>
-                            <form method="post" action="{% url 'shortlist_applicant' job.pk applicant.user.pk %}">
-                                {% csrf_token %}
-                                <input type="checkbox" name="shortlisted" {% if applicant.shortlisted %}checked{% endif %}>
-                                <a href="{% url 'shortlist_applicant' job.pk applicant.user.pk %}">Shortlist</a>
-                            </form>
-                        </td>
+                    <td>
+                        {% if applicant.shortlisted %}
+                            <a href="{% url 'remove_from_shortlist' job.pk applicant.user.pk %}">Remove from Shortlist</a>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a> -->
     </div>
 </div>
-
 
 {% endblock content %}

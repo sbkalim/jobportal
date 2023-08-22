@@ -51,6 +51,7 @@ class ApplyJob(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=status_choices)
+    shortlisted= models.BooleanField(default=False)
 
 
 
