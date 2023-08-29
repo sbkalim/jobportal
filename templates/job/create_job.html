@@ -44,10 +44,11 @@
                         <label for="exampleInputEmail1" class="form-label">Ideal Candidate</label>
                         {% render_field form.ideal_candidate|attr:"rows:2" class="form-control" %}
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Required Skills</label>
-                        {% render_field form.required_skills|attr:"rows:2" class="form-control" %}
-                    </div>
+<div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Required Skills</label>
+    {% render_field form.required_skills|attr:"rows:2" class="form-control" placeholder="Python, AWS, Linux" %}
+</div>
+
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Is this Job Available</label>
                         {% render_field form.is_available class="form-check-input" %}

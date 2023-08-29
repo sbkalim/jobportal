@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Job, ApplyJob
+from .models import Job, ApplyJob, Company
 from .form import CreateJobForm, UpdateJobForm
 from users.models import User
 
