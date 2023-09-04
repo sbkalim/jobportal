@@ -6,3 +6,4 @@ admin.site.register(Industry)
 
 admin.site.register(Job)
 # admin.site.register(Job)
+

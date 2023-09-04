@@ -5,13 +5,13 @@
 
 <section>
     <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
+        <div class=" py-5">
             <div class="row">
                 <div class="col-8">
 <!--                    <img src="{{ job.company.logo.url }}" alt="{{ job.company.name }} Logo" width="150" height="auto">-->
                     <h2 class="display-5 fw-bold">{{job.title}}</h2>
                     <p class="col-md-8 fs-5 mt-3">
-                        {{job.state}} | Remote | BDT {{job.salary|intcomma}} | <a href="#" target="_blank"
+                        {{job.state}} | {{job.job_type}} | BDT {{job.salary|intcomma}} | <a href="#" target="_blank"
                                                                                   style="text-decoration: none;">
                         {{job.company.website}}</a>
                     </p>
@@ -28,7 +28,7 @@
                 <div class="col-4">
                     <div class="row company">
                         <div class="company-details">
-                            <h4 class="title">About the Company</h4>
+                            <h4 class="title">About</h4>
                             <p class="text fw-bold">{{job.company.name}}</p>
                             <p class="text">{{job.company.city}}, {{job.company.state}}</p>
                             <p class="text">Established: {{job.company.est_date}}</p>
@@ -82,18 +82,33 @@
     </div>
 
     <div class="col">
-        <div class="card h-100">
+<!--        <div class="card h-100">-->
 
-            <div class="card-body">
-                <h5 class="card-title">Related Jobs</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This card has even longer content than the first to show that equal
-                    height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted"></small>
-            </div>
-        </div>
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">About Company</h5>-->
+<!--                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to-->
+<!--                    additional content. This card has even longer content than the first to show that equal-->
+<!--                    height action.</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--                <small class="text-muted"></small>-->
+<!--            </div>-->
+<!--        </div>-->
+        
+        <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">More Jobs from {{ job.company.name }}</h5>
+        <ul>
+            {% for other_job in other_jobs %}
+
+                <li><a href="{% url 'job-details' other_job.pk %}">{{ other_job.title }}</a></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+            <div class="card-footer"></div>
+</div>
+
     </div>
 </div> <br>
 
